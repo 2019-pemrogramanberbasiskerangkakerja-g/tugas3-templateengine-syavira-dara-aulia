@@ -1,0 +1,27 @@
+div {
+    margin: 20px 0;
+    font-family: 'Roboto Condensed'; 
+    .colhead {
+      font-weight: bold;
+      background: #eee;
+    }
+}
+
+div > div {
+     margin: 0;
+     padding: 10px;
+     border: 2px solid #111;
+     display: table-row;
+     }
+     
+div > div > div {
+  display: table-cell;
+}
+
+.table-head {
+  display: table-cell;
+}
+
+li {
+    list-style: none;
+}

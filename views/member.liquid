@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet">
+    <link href="views/style.css" rel="stylesheet">
+    <title>Show member</title>
+</head>
+<body>
+    
+    <div id="member" style="display:table-cell;">
+      <section>
+        <div>
+         {% for col in columns %}
+            <div style="width : {{ col.width }}" class="colhead table-head">{{ col.label | capitalize }}</div>
+         {% endfor %}
+          {% for item in data %}
+            <div style="background: {{ item.background }}; color: {{ item.color }}">
+              {% for col in columns %}
+       
+                    <div style="width : {{ col.width }}">
+                      {% if col.before.type == "bar" %}
+                        <div class="bar" style="background: {{ item.color }}; height: 10px; width: calc({{ col.width }} * {{ item[col.label] | divided_by : col.before.limit }})"></div>
+                      {% endif %}
+                      {{ item[col.label] }}
+                    </div>
+              {% endfor %}
+
+            </div>
+          {% endfor %}
+              </div>
+
+      </section>
+
+    
+        
+    </div>
+</body>
+</html>
+
+
+
+
